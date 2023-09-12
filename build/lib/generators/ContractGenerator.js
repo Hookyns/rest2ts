@@ -120,7 +120,7 @@ const generateContracts = (swaggerSchema, areNullableStringsEnabled) => {
         if (o.type === "object") {
             return view.properties.length > 0 && view.properties !== "unknown"
                 ? (0, mustache_1.render)(`export type {{ name }} = {\n\t{{{ properties }}}\n};\n`, view)
-                : (0, mustache_1.render)(`export type {{ name }} {};\n`, view);
+                : (0, mustache_1.render)(`export type {{ name }} = {};\n`, view);
         }
         return (0, mustache_1.render)(`export const {{ name }} = {{{ properties }}};\n`, view);
     })
